@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>Blog</title>
+
+    <!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="stylesheets/creative.css" rel="stylesheet">
+	<style>
+    #loginOptions{
+        display: none;
+    }
+    #logoutOptions{
+        display: none;   
+    }
+    #message{
+        color: white;
+    }
+    
+    small{
+        padding-left: 20px;
+    }
+    </style>
+  </head>
+  <body id="page-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+    	<div class="container">
+			<div class="navbar-header">
+				<a href="" class="navbar-brand">My WebSite</a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          </button>
+			</div>
+			<div class="collapse navbar-collapse navbar-right" id="userSignIn">
+				<div id="loginOptions">
+                     <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    
+                </ul>
+                    <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#signin">Sign in</button>
+				    <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#register">Register</button>
+                    
+                </div>
+                <div id="logoutOptions">
+                    <span id="message"></span>
+                     <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#posts">Articles</a>
+                    </li>
+                </ul>
+                     <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal" data-target="#article">New Article</button>
+                    <button type="button" class="btn btn-primary navbar-btn" id="signoutBtn">Sign out</button>
+                </div>
+			</div>
+		</div>	
+    </div>
+
+
+
+	<!-- Registration -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="register">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Register</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form id="registerform">
+	        	<div class="row">
+	        		<div class="col-xs-3 col-sm-3 col-md-3">
+    					<div class="form-group">
+                			<img src="images/default.gif" class="img-responsive" alt="Default Image" width="100">
+    					</div>
+    				</div>
+    				<div class="col-xs-3 col-sm-3 col-md-3">
+    					<div class="form-group">
+                			<input type="file" name="img">
+                		</div>
+                	</div>
+    				
+	        	</div>
+    			<div class="row">
+    				<div class="col-xs-6 col-sm-6 col-md-6">
+    					<div class="form-group">
+                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name" required autofocus>
+    					</div>
+    				</div>
+    				<div class="col-xs-6 col-sm-6 col-md-6">
+    					<div class="form-group">
+    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name" required>
+    					</div>
+    				</div>
+    			</div>
+
+    			<div class="form-group">
+    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+    			</div>
+
+    			<div class="row">
+    				<div class="col-xs-6 col-sm-6 col-md-6">
+    					<div class="form-group">
+    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" required>
+    					</div>
+    				</div>
+    				<div class="col-xs-6 col-sm-6 col-md-6">
+    					<div class="form-group">
+    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" required>
+    					</div>
+    				</div>
+    			</div>
+    			
+    			<div class="right">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        			<button class="btn btn-primary" type="submit">Register</button>
+        		</div>
+    		
+    		</form>
+	      </div>
+	      
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- Registration -->
+
+	<!-- Login -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="signin">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Sign in</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form class="form-signin" id="loginform">
+        		<label for="inputEmail" class="sr-only">Email address</label>
+        		<input type="email" id="inputEmail" name="username" class="form-control" placeholder="Email address" required autofocus>
+        		<label for="inputPassword" class="sr-only">Password</label>
+        		<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+        		<div class="checkbox">
+          			<label>
+            			<input type="checkbox" value="remember-me"> Remember me
+          			</label>
+        		</div>
+        		<div class="right">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        			<button class="btn btn-primary" type="submit" >Sign in</button>
+        		</div>
+      		</form>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- Login -->
+	
+	<!-- Article -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="article">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Write New Article</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form class="form-article" id="articleform">
+        		<label for="title" class="sr-only">Title</label>
+        		<input type="text" id="articleTitle" name="title" class="form-control" placeholder="Title" required autofocus><br>
+        		<label for="content" class="sr-only">Post</label>
+        		<textarea rows="5" id="articlePost" name="post" class="form-control" placeholder="Content" required></textarea><br>
+        		<div class="right">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        			<button class="btn btn-primary" type="submit" >Post</button>
+        		</div>
+      		</form>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- Article -->
+	
+	<!-- uArticle -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="uArticle">
+	  <div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Update Article</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form class="form-article" id="uarticleform">
+        		<label for="utitle" class="sr-only">Title</label>
+        		<input type="text" id="uarticleTitle" name="utitle" class="form-control" placeholder="Title" required autofocus><br>
+        		<label for="ucontent" class="sr-only">Post</label>
+        		<textarea rows="5" id="uarticlePost" name="upost" class="form-control" placeholder="Content" required></textarea><br>
+        		<div class="right">
+        			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        			<button class="btn btn-primary" type="submit" >Update</button>
+        		</div>
+      		</form>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- uArticle -->
+
+      <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">Style is knowing who you are,what you want to say, and not giving a damn about it!</h1>
+                <hr>
+                <p id="content">With top-tier fashion bloggers raking in multimillion-dollar campaigns, it’s no wonder every self-proclaimed fashionista wants to launch a personal style site. But not all outfit posts are created equal. These fashion bloggers stand out from the pack thanks to their one-of-a-kind sartorial sense and sharp business acumen. !</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">We've got what you need!</h2>
+                    <hr class="light">
+                    <p class="text-faded"> We all need a little fashion inspiration every now and then—especially during this time of the year when the weather outside is still frightful, yet the only thing we can talk about is our (non-existent) spring wardrobe. The snow will end and we'll all finally be able to wear shorts again, we promise! </p>
+                    <p class="text-faded">
+        So, yesterday on Instagram we asked which bloggers you turn to when you need a quick dose of fashion and style creativity. While we all love Leandra and Blair, let's be honest—most of us can't afford those designer wardrobes. Luckily, there are plenty of bloggers with amazing, budget friendly style worth following. And you proved it to us by gushing over these amazing ladies (many we hadn't seen before, so thank you)!  
+                    </p>
+                    <p class="text-faded">
+Whether these ladies have a major social media following or are just starting out, to make our below list these bloggers needed to have budget friendly, real woman style. Admittedly, it was hard for us to choose. But we narrowed it down to these top 15 picks; enjoy a little fashion inspiration today!</p>
+                    <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                       <span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                        <h3>Followers on Instagram, Twitter, Facebook, YouTube and Pinterest, as well as website traffic</h3>
+                        <p class="text-muted">These numbers gave us a snapshot of how many people these bloggers are reaching every day. </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> 
+                        <h3>Brand extensions</h3>
+                        <p class="text-muted">Bloggers were rewarded for launching their own lines and/or collaborations!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                       <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 
+                        <h3>"It" factor</h3>
+                        <p class="text-muted">We gave bonus points to bloggers who worked with higher-end brands and those whom industry insiders say are especially popular with advertisers right now</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 
+                        <h3>Google News searches</h3>
+                        <p class="text-muted">Generating headlines = influence.!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="images/portfolio/fullsize/1.jpg" class="portfolio-box">
+                        <img src="images/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="images/portfolio/fullsize/2.jpg" class="portfolio-box">
+                        <img src="images/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="images/portfolio/fullsize/3.jpg" class="portfolio-box">
+                        <img src="images/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="images/portfolio/fullsize/4.jpg" class="portfolio-box">
+                        <img src="images/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="images/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="images/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="images/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="images/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <hr class="primary">
+                    <p>Ready to start your next project with me? That's great! Give me a call or send me an email and I will get back to you as soon as possible!</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>Phone: 859-559-6227</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="#">masoodi.meena@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="posts">
+        <div class="container box"> 
+            <p id="articles">Register for OPEN Forum and tell us about my webpage—you may be featured in an upcoming article.
+            </p>
+	   <div class="container box1" id="blogPosts"></div>
+	   </div>
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="javascripts/scripts.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>
